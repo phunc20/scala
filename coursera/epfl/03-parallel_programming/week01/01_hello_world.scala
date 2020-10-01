@@ -1,14 +1,15 @@
 class HelloThread extends Thread {
+  //override def run(): Unit = {
   override def run() {
-    println("Hello world, from non-main thread!")
+    println("Hello world (non-main thread)")
   }
 }
 
 val t = new HelloThread
 
 t.start()
+println("Hello world (main thread)")
 t.join()
-println("Hello world, from main thread!")
 
 
 

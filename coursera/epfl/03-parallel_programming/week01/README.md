@@ -27,6 +27,29 @@ Hello world, from main thread!
 ```
 
 Let's fix the <b>deprecated</b> issue:
+```scala
+[phunc20@denjiro-x220 week01]$ cat 01_hello_world.scala
+class HelloThread extends Thread {
+  override def run(): Unit = {
+    println("Hello world, from non-main thread!")
+  }
+}
 
+val t = new HelloThread
+
+t.start()
+println("Hello world, from main thread!")
+t.join()
+
+[phunc20@denjiro-x220 week01]$ scala -deprecation 01_hello_world.scala
+Hello world (main thread)
+Hello world (non-main thread)
+[phunc20@denjiro-x220 week01]$ scala 01_hello_world.scala
+Hello world (main thread)
+Hello world (non-main thread)
+[phunc20@denjiro-x220 week01]$ scala 01_hello_world.scala
+Hello world (main thread)
+Hello world (non-main thread)
+```
 
 
