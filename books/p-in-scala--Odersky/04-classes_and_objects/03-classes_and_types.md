@@ -52,5 +52,11 @@ scala> h1.Type
 scala> val h4: House = new House
 val h4: House = House@4db203fb
 
+scala> var h5: House = "a String"
+                       ^
+       error: type mismatch;
+        found   : String("a String")
+        required: House
+
 scala>
 ```
